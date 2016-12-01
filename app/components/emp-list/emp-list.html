@@ -1,6 +1,10 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/iron-data-table/iron-data-table.html">
 <link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../bower_components/paper-dialog/paper-dialog.html">
 <dom-module id="emp-list">
   <link rel="import" type="css" href="emp-list.css">
 	<template>
@@ -18,19 +22,17 @@
       </data-table-column>
     </iron-data-table>
 
-    <!-- Bind data with ajax -->
-    <iron-data-table items="{{ list }}">
-      <data-table-column name="Name">
-        <template>
-          [[ item.name ]]
-        </template>
-      </data-table-column>
-      <data-table-column name="Age">
-        <template>
-          [[ item.age ]]
-        </template>
-      </data-table-column>
-    </iron-data-table>
+    <paper-dialog id="addDetails">
+        <h1>Add/Edit details</h1>
+        <form is="iron-form">
+          <paper-input value="{{ emp.name }}"></paper-input>
+          <paper-input value="{{ emp.age }}"></paper-input>
+        </form>
+        <div class="buttons">
+          <paper-button dialog-dismiss>Cancel</paper-button>
+          <paper-button on-tap="createNewRecord()">Save</paper-button>
+        </div>
+    </paper-dialog>
 
   </template>
   <script src="emp-list.js"></script>

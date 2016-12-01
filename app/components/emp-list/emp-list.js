@@ -17,6 +17,10 @@ Polymer({
   },
 
   loadData: function(e) {
-    this.set('list', e.detail.response);
+    this.set('empDetails', this.empDetails.concat(e.detail.response));
+  },
+
+  createNewRecord: function() {
+    
   }
 });
