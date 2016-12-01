@@ -1,0 +1,37 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-data-table/iron-data-table.html">
+<link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
+<dom-module id="emp-list">
+  <link rel="import" type="css" href="emp-list.css">
+	<template>
+  <iron-ajax id="ajaxReq" method="GET" url="" on-response="{{ loadData }}"></iron-ajax>
+    <iron-data-table items="[[ empDetails ]]">
+      <data-table-column name="Name">
+        <template>
+          [[ item.name ]]
+        </template>
+      </data-table-column>
+      <data-table-column name="Age">
+        <template>
+          [[ item.age ]]
+        </template>
+      </data-table-column>
+    </iron-data-table>
+
+    <!-- Bind data with ajax -->
+    <iron-data-table items="[[ list ]]">
+      <data-table-column name="Name">
+        <template>
+          [[ item.name ]]
+        </template>
+      </data-table-column>
+      <data-table-column name="Age">
+        <template>
+          [[ item.age ]]
+        </template>
+      </data-table-column>
+    </iron-data-table>
+
+  </template>
+  <script src="emp-list.js"></script>
+</dom-module>

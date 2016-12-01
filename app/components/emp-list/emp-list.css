@@ -1,0 +1,9 @@
+
+:host {
+  display: block;
+}
+
+iron-data-table {
+  margin: 0 auto;
+  max-width: 500px;
+}

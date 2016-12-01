@@ -1,0 +1,29 @@
+{
+  "name": "projects",
+  "version": "0.0.0",
+  "dependencies": {
+    "angular": "^1.4.0",
+    "bootstrap": "^3.2.0",
+    "angular-animate": "^1.4.0",
+    "angular-cookies": "^1.4.0",
+    "angular-resource": "^1.4.0",
+    "angular-route": "^1.4.0",
+    "angular-sanitize": "^1.4.0",
+    "angular-touch": "^1.4.0",
+    "webcomponentsjs": "^0.7.23",
+    "polymer": "Polymer#^1.7.0",
+    "iron-data-table": "^1.0.6",
+    "iron-ajax": "^1.4.3"
+  },
+  "appPath": "app",
+  "moduleName": "projectsApp",
+  "overrides": {
+    "bootstrap": {
+      "main": [
+        "less/bootstrap.less",
+        "dist/css/bootstrap.css",
+        "dist/js/bootstrap.js"
+      ]
+    }
+  }
+}
