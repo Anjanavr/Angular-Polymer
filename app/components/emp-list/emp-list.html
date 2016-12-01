@@ -4,7 +4,7 @@
 <dom-module id="emp-list">
   <link rel="import" type="css" href="emp-list.css">
 	<template>
-  <iron-ajax id="ajaxReq" method="GET" url="" on-response="{{ loadData }}"></iron-ajax>
+  <iron-ajax id="ajaxReq" method="GET" url="../../details.json" on-response="loadData"></iron-ajax>
     <iron-data-table items="[[ empDetails ]]">
       <data-table-column name="Name">
         <template>
@@ -19,7 +19,7 @@
     </iron-data-table>
 
     <!-- Bind data with ajax -->
-    <iron-data-table items="[[ list ]]">
+    <iron-data-table items="{{ list }}">
       <data-table-column name="Name">
         <template>
           [[ item.name ]]

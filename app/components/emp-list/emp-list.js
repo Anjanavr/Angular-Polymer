@@ -5,14 +5,18 @@ Polymer({
     empDetails : {
       type: Array,
       value: []
+    },
+    list: {
+      type: Array,
+      value: []
     }
   },
 
   attached: function() {
-    // this.$.ajaxReq.generateReq();
+    this.$.ajaxReq.generateRequest();
   },
 
-  loadData: function() {
-    
+  loadData: function(e) {
+    this.set('list', e.detail.response);
   }
 });
