@@ -1,9 +1,45 @@
 
 :host {
   display: block;
+  font-family: 'Roboto', sans-serif;
+  position: relative;
 }
 
-iron-data-table {
-  margin: 0 auto;
-  max-width: 500px;
+#grid {
+  background-color: #fff;
+  height: 75vh;
+ --default-primary-color: red;
+  --iron-data-table-header: {
+    background-color: #B8D0AA;
+    color: #356618;
+    font-size: 1.2em;
+    font-weight: 400;
+  }
+  --iron-data-table-row: {
+    height: 45px;
+    align-items: center;
+    margin-bottom: .5em;
+  }
+  --iron-data-table-row-odd: {
+    /*background-color: #DCE9D4;*/
+  }
+  --iron-data-table-row-even: {
+    /*background-color: #B8D0AA;*/
+  }
+}
+.btn-wrap {
+  padding-top: .3em;
+  padding-bottom: .3em;
+  text-align: right;
+}
+paper-icon-button {
+  padding: 0.2em;
+}
+paper-button {
+  background-color: #356618;
+  color: #fff;
+  --paper-button-raised-keyboard-focus: {
+    background-color: var(--paper-pink-a200) !important;
+    color: white !important;
+  };
 }

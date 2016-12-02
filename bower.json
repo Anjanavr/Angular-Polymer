@@ -16,7 +16,8 @@
     "iron-ajax": "^1.4.3",
     "iron-form": "^1.1.4",
     "paper-button": "^1.0.14",
-    "paper-dialog": "^1.1.0"
+    "paper-dialog": "^1.1.0",
+    "iron-icons": "^1.2.0"
   },
   "appPath": "app",
   "moduleName": "projectsApp",

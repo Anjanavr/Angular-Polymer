@@ -5,19 +5,50 @@
 <link rel="import" href="../../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../../bower_components/paper-input/paper-input.html">
 <link rel="import" href="../../bower_components/paper-dialog/paper-dialog.html">
+<link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
 <dom-module id="emp-list">
   <link rel="import" type="css" href="emp-list.css">
 	<template>
-  <iron-ajax id="ajaxReq" method="GET" url="../../details.json" on-response="loadData"></iron-ajax>
-    <iron-data-table items="[[ empDetails ]]">
-      <data-table-column name="Name">
+    <iron-ajax id="ajaxReq" method="GET" url="../../details.json" on-response="loadData"></iron-ajax>
+    <div class="btn-wrap flex">
+      <paper-button class="raised" on-tap="openModal">Add Employee</paper-button>
+    </div>
+    <iron-data-table id="grid" items="{{ empDetails }}">
+      <data-table-column name="First name">
         <template>
-          [[ item.name ]]
+          [[ item.firstName ]]
         </template>
       </data-table-column>
-      <data-table-column name="Age">
+      <data-table-column name="Last name">
         <template>
-          [[ item.age ]]
+          [[ item.lastName ]]
+        </template>
+      </data-table-column>
+      <data-table-column name="State">
+        <template>
+          [[ item.state ]]
+        </template>
+      </data-table-column>
+      <data-table-column name="Email" flex="6">
+        <template>
+          [[ item.email ]]
+        </template>
+      </data-table-column>
+      <data-table-column name="Phone">
+        <template>
+          [[ item.phone]]
+        </template>
+      </data-table-column>
+      <data-table-column flex="0" width="2em">
+        <template>
+          <paper-icon-button title="Edit" icon="icons:create" on-tap="editItem"></paper-icon-button>
+        </template>
+      </data-table-column>
+      <data-table-column flex="0" width="2em">
+        <template>
+          <paper-icon-button title="Delete" icon="icons:delete" on-tap="deleteItem"></paper-icon-button>
         </template>
       </data-table-column>
     </iron-data-table>
@@ -25,12 +56,15 @@
     <paper-dialog id="addDetails">
         <h1>Add/Edit details</h1>
         <form is="iron-form">
-          <paper-input value="{{ emp.name }}"></paper-input>
-          <paper-input value="{{ emp.age }}"></paper-input>
+          <paper-input placeholder="First name" auto-focus required value="{{ emp.firstName }}"></paper-input>
+          <paper-input placeholder="Last name" required value="{{ emp.lastName }}"></paper-input>
+          <paper-input placeholder="State" required value="{{ emp.state }}"></paper-input>
+          <paper-input placeholder="Email" required value="{{ emp.email }}"></paper-input>
+          <paper-input placeholder="Phone" required value="{{ emp.phone }}"></paper-input>
         </form>
         <div class="buttons">
-          <paper-button dialog-dismiss>Cancel</paper-button>
-          <paper-button on-tap="createNewRecord()">Save</paper-button>
+          <paper-button on-tap="closeModal">Cancel</paper-button>
+          <paper-button on-tap="createNewRecord">Save</paper-button>
         </div>
     </paper-dialog>
 

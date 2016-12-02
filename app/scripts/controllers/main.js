@@ -9,11 +9,20 @@
  */
 angular.module('projectsApp')
   .controller('MainCtrl', function ($scope) {
-    $scope.employees = [{
-    	name: 'Abc',
-      age: 21
-    }, {
-      name: 'Cde',
-      age: 32
-    }];
+    $scope.employees = [
+      {
+      	"firstName": "darryl",
+        "lastName": "caldwell",
+        "state": "delaware",
+        "email": "darryl.caldwell@example.com",
+        "phone": "051-919-0654"
+      },
+      {
+        "firstName": "phoebe",
+        "lastName": "evans",
+        "state": "indiana",
+        "email": "phoebe.evans@example.com",
+        "phone": "031-580-9758"
+      }
+    ];
 });
