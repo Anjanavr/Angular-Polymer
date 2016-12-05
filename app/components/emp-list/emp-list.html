@@ -64,18 +64,18 @@
     </paper-dialog>
 
     <paper-dialog id="addDetails" modal>
-        <h2>{{ title }} details</h2>
-        <form is="iron-form" id="empForm">
-          <paper-input is="iron-input" label="First name" auto-validate auto-focus required value="{{ emp.firstName }}" error-message="This field is required"></paper-input>
-          <paper-input label="Last name" auto-validate required value="{{ emp.lastName }}" error-message="This field is required"></paper-input>
-          <paper-input label="State" auto-validate required value="{{ emp.state }}" error-message="This field is required"></paper-input>
-          <paper-input label="Email" auto-validate type="email" required value="{{ emp.email }}"></paper-input>
-          <paper-input label="Phone" auto-validate type="number" required value="{{ emp.phone }}"></paper-input>
-        </form>
-        <div class="buttons">
-          <paper-button class="cancel" on-tap="closeModal">Cancel</paper-button>
-          <paper-button class="save" on-tap="createNewRecord">Save</paper-button>
-        </div>
+      <h2>{{ title }} details</h2>
+      <form is="iron-form" id="empForm">
+        <paper-input is="iron-input" label="First name" auto-validate auto-focus required value="{{ emp.firstName }}" error-message="This field is required"></paper-input>
+        <paper-input label="Last name" auto-validate required value="{{ emp.lastName }}" error-message="This field is required"></paper-input>
+        <paper-input label="State" auto-validate required value="{{ emp.state }}" error-message="This field is required"></paper-input>
+        <paper-input label="Email" auto-validate type="email" required value="{{ emp.email }}"></paper-input>
+        <paper-input label="Phone" auto-validate type="number" required value="{{ emp.phone }}"></paper-input>
+      </form>
+      <div class="buttons">
+        <paper-button class="cancel" on-tap="closeModal">Cancel</paper-button>
+        <paper-button class="save" on-tap="createNewRecord">Save</paper-button>
+      </div>
     </paper-dialog>
 
   </template>
