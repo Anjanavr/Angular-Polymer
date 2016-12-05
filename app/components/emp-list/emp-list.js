@@ -35,6 +35,7 @@ Polymer({
 
   addItem: function() {
     this.set('title', 'Add');
+    this.$.empForm.reset();
     this.openModal();
   },
 
