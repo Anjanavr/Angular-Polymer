@@ -8,65 +8,73 @@
 <link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../../bower_components/iron-form/iron-form.html">
 <link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
-<link rel="import" href="../../bower_components/iron-validator/iron-validator.html">
+<link rel="import" href="../../bower_components/iron-validator-behavior/iron-validator-behavior.html">
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
 <dom-module id="emp-list">
   <link rel="import" type="css" href="emp-list.css">
 	<template>
     <iron-ajax id="ajaxReq" method="GET" url="../../details.json" on-response="loadData"></iron-ajax>
     <div class="btn-wrap flex">
-      <paper-button class="raised" on-tap="openModal">Add Employee</paper-button>
+      <paper-button class="raised" on-tap="addItem">Add Employee</paper-button>
     </div>
     <iron-data-table id="grid" items="{{ empDetails }}">
       <data-table-column name="First name">
         <template>
-          [[ item.firstName ]]
+          <span title="[[ item.firstName ]]">[[ item.firstName ]]</span>
         </template>
       </data-table-column>
       <data-table-column name="Last name">
         <template>
-          [[ item.lastName ]]
+          <span title="[[ item.lastName ]]">[[ item.lastName ]]</span>
         </template>
       </data-table-column>
       <data-table-column name="State">
         <template>
-          [[ item.state ]]
+          <span title="[[ item.state ]]">[[ item.state ]]</span>
         </template>
       </data-table-column>
-      <data-table-column name="Email" flex="6">
+      <data-table-column name="Email" flex="6" width="4em">
         <template>
-          [[ item.email ]]
+          <span title="[[ item.email ]]">[[ item.email ]]</span>
         </template>
       </data-table-column>
       <data-table-column name="Phone">
         <template>
-          [[ item.phone]]
+          <span title="[[ item.phone ]]">[[ item.phone]]</span>
         </template>
       </data-table-column>
-      <data-table-column flex="0" width="2em">
+      <data-table-column flex="0" width="1.2em">
         <template>
           <paper-icon-button title="Edit" icon="icons:create" on-tap="editItem"></paper-icon-button>
         </template>
       </data-table-column>
-      <data-table-column flex="0" width="2em">
+      <data-table-column flex="0" width="1.2em">
         <template>
-          <paper-icon-button title="Delete" icon="icons:delete" on-tap="deleteItem"></paper-icon-button>
+          <paper-icon-button title="Delete" icon="icons:delete" on-tap="confirmDelete"></paper-icon-button>
         </template>
       </data-table-column>
     </iron-data-table>
 
-    <paper-dialog id="addDetails">
-        <h1>Add/Edit details</h1>
+    <paper-dialog id="deleteConfirm" modal>
+      <p>Are you sure you want to delete this record?</p>
+      <div class="buttons">
+        <paper-button class="cancel" on-tap="closeConfirm">Cancel</paper-button>
+        <paper-button class="save" on-tap="deleteItem">Delete</paper-button>
+      </div>
+    </paper-dialog>
+
+    <paper-dialog id="addDetails" modal>
+        <h2>{{ title }} details</h2>
         <form is="iron-form" id="empForm">
-          <paper-input label="First name" auto-focus required value="{{ emp.firstName }}" error-message="This field is required"></paper-input>
+          <paper-input is="iron-input" label="First name" auto-focus required value="{{ emp.firstName }}" error-message="This field is required"></paper-input>
           <paper-input label="Last name" required value="{{ emp.lastName }}" error-message="This field is required"></paper-input>
           <paper-input label="State" required value="{{ emp.state }}" error-message="This field is required"></paper-input>
           <paper-input label="Email" type="email" required value="{{ emp.email }}"></paper-input>
           <paper-input label="Phone" type="number" required value="{{ emp.phone }}"></paper-input>
         </form>
         <div class="buttons">
-          <paper-button on-tap="closeModal">Cancel</paper-button>
-          <paper-button on-tap="createNewRecord">Save</paper-button>
+          <paper-button class="cancel" on-tap="closeModal">Cancel</paper-button>
+          <paper-button class="save" on-tap="createNewRecord">Save</paper-button>
         </div>
     </paper-dialog>
 

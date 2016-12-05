@@ -1,18 +1,18 @@
 [{
-	"firstName": "donna",
-  "lastName": "davis",
-  "state": "georgia",
+	"firstName": "Donna",
+  "lastName": "Davis",
+  "state": "Georgia",
   "email": "donna.davis@example.com",
   "phone": "0518602380"
 }, {
-  "firstName": "samuel",
-  "lastName": "kelley",
-  "state": "texas",
+  "firstName": "Samuel",
+  "lastName": "Kelley",
+  "state": "Texas",
   "email": "samuel.kelley@example.com",
   "phone": "0713205987"
 }, {
-  "firstName": "katie",
-  "lastName": "butler",
+  "firstName": "Katie",
+  "lastName": "Butler",
   "state": "Nebraska",
   "email": "katie.butler@example.com",
   "phone": "0311449861"

@@ -14,6 +14,10 @@ Polymer({
     edit: {
       type: Boolean,
       value: false
+    },
+    title: {
+      type: String,
+      value: 'Add'
     }
   },
 
@@ -29,6 +33,20 @@ Polymer({
     this.set('empDetails', this.empDetails.concat(e.detail.response));
   },
 
+  addItem: function() {
+    this.set('title', 'Add');
+    this.openModal();
+  },
+
+  confirmDelete: function(e) {
+    this.set('index', e.model.index);
+    this.$.deleteConfirm.open();
+  },
+
+  closeConfirm: function() {
+    this.$.deleteConfirm.close();
+  },
+
   openModal: function() {
     this.$.addDetails.open();
   },
@@ -40,17 +58,21 @@ Polymer({
     }
     this.set('emp', {});
     this.$.addDetails.close();
+    this.$,empForm.reset();
   },
 
   editItem: function(e) {
+    this.set('title', 'Edit');
     this.set('emp', e.model.item);
     this.set('index', e.model.index);
     this.set('edit', true);
     this.openModal();
   },
 
-  deleteItem: function(e) {
-    this.splice('empDetails', e.model.index, 1);
+  deleteItem: function() {
+    this.splice('empDetails', this.index, 1);
+    this.set('index', null);
+    this.closeConfirm();
   },
 
   createNewRecord: function() {
@@ -69,5 +91,9 @@ Polymer({
     } else {
       return;
     }
-  }
+  },
+
+  // validate: function(values) {
+  //   console.log(values);
+  // }
 });
