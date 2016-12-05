@@ -3,17 +3,17 @@
   "lastName": "davis",
   "state": "georgia",
   "email": "donna.davis@example.com",
-  "phone": "051-860-2380"
+  "phone": "0518602380"
 }, {
   "firstName": "samuel",
   "lastName": "kelley",
   "state": "texas",
   "email": "samuel.kelley@example.com",
-  "phone": "071-320-5987"
+  "phone": "0713205987"
 }, {
   "firstName": "katie",
   "lastName": "butler",
   "state": "Nebraska",
   "email": "katie.butler@example.com",
-  "phone": "031-144-9861"
+  "phone": "0311449861"
 }]

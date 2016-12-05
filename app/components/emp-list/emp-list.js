@@ -17,6 +17,10 @@ Polymer({
     }
   },
 
+  behaviors: [
+    'Polymer.IronValidatorBehavior'
+  ],
+
   attached: function() {
     this.$.ajaxReq.generateRequest();
   },
@@ -50,13 +54,20 @@ Polymer({
   },
 
   createNewRecord: function() {
-    if (this.edit) {
-      this.splice('empDetails', this.index, 1, this.emp);
-      // me.notifyPath('rule.tpList.#' + me.tpIndex + '.isOfferSelected');
-      this.notifyPath('empDetails.#' + this.index + '.firstName');
+    if (this.$.empForm.validate()) {
+      if (this.edit) {
+        this.splice('empDetails', this.index, 1, this.emp);
+        this.notifyPath('empDetails.#' + this.index + '.firstName');
+        this.notifyPath('empDetails.#' + this.index + '.lastName');
+        this.notifyPath('empDetails.#' + this.index + '.state');
+        this.notifyPath('empDetails.#' + this.index + '.email');
+        this.notifyPath('empDetails.#' + this.index + '.phone');
+      } else {
+        this.push('empDetails', this.emp);
+      }
+      this.closeModal();
     } else {
-      this.push('empDetails', this.emp);
+      return;
     }
-    this.closeModal();
   }
 });

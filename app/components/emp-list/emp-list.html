@@ -6,7 +6,9 @@
 <link rel="import" href="../../bower_components/paper-input/paper-input.html">
 <link rel="import" href="../../bower_components/paper-dialog/paper-dialog.html">
 <link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../../bower_components/iron-form/iron-form.html">
 <link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../../bower_components/iron-validator/iron-validator.html">
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
 <dom-module id="emp-list">
   <link rel="import" type="css" href="emp-list.css">
@@ -55,12 +57,12 @@
 
     <paper-dialog id="addDetails">
         <h1>Add/Edit details</h1>
-        <form is="iron-form">
-          <paper-input placeholder="First name" auto-focus required value="{{ emp.firstName }}"></paper-input>
-          <paper-input placeholder="Last name" required value="{{ emp.lastName }}"></paper-input>
-          <paper-input placeholder="State" required value="{{ emp.state }}"></paper-input>
-          <paper-input placeholder="Email" required value="{{ emp.email }}"></paper-input>
-          <paper-input placeholder="Phone" required value="{{ emp.phone }}"></paper-input>
+        <form is="iron-form" id="empForm">
+          <paper-input label="First name" auto-focus required value="{{ emp.firstName }}" error-message="This field is required"></paper-input>
+          <paper-input label="Last name" required value="{{ emp.lastName }}" error-message="This field is required"></paper-input>
+          <paper-input label="State" required value="{{ emp.state }}" error-message="This field is required"></paper-input>
+          <paper-input label="Email" type="email" required value="{{ emp.email }}"></paper-input>
+          <paper-input label="Phone" type="number" required value="{{ emp.phone }}"></paper-input>
         </form>
         <div class="buttons">
           <paper-button on-tap="closeModal">Cancel</paper-button>

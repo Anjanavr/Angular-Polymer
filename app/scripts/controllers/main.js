@@ -15,14 +15,14 @@ angular.module('projectsApp')
         "lastName": "caldwell",
         "state": "delaware",
         "email": "darryl.caldwell@example.com",
-        "phone": "051-919-0654"
+        "phone": "0519190654"
       },
       {
         "firstName": "phoebe",
         "lastName": "evans",
         "state": "indiana",
         "email": "phoebe.evans@example.com",
-        "phone": "031-580-9758"
+        "phone": "0315809758"
       }
     ];
 });
